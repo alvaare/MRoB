@@ -15,9 +15,13 @@ struct demand_pair {
 struct instance {
   int n;
   graph G;
-  int M;
+  double M;
   set<demand_pair> D;
-  map<demand_pair, int> w;
+  map<demand_pair*, double> w;
 };
+
+typedef graph solution;
+
+solution sample_augment(instance*);
 
 #endif
