@@ -4,9 +4,11 @@
 #include<vector>
 using namespace std;
 
+typedef pair<int, int> arc;
+
 struct graph {
   int n;
-  vector<pair<int,int>>* edges;
+  vector<arc>* edges;
   graph(int n) {
     this->n = n;
     this->edges = new vector<pair<int,int>>[n];
