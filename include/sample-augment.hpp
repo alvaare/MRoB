@@ -6,21 +6,24 @@
 #include"graph.hpp"
 using namespace std;
 
-struct demand_pair {
-  int s;
-  int t;
-  int d;
-};
+typedef const pair<int,int> demand_pair;
+
+typedef pair<demand_pair, double> demand;
+
+typedef map<demand_pair, double> demands;
 
 struct instance {
   int n;
-  graph G;
+  graph* G;
   double M;
-  set<demand_pair> D;
-  map<demand_pair*, double> w;
+  demands D;
+
+
 };
 
 typedef graph solution;
+
+typedef set<demand_pair*> sample;
 
 solution sample_augment(instance*);
 
