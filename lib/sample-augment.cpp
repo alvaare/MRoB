@@ -3,24 +3,25 @@
 #include"sample-augment.hpp"
 using namespace std;
 
-set<demand_pair*> random_sampling(instance* P) {
-  set<demand_pair*> S;
-  for(auto dp : P->D) {
-    double p = P->w[&dp]/P->M;
+sample random_sample(instance* P) {
+  sample S;
+  for(auto d : P->D) {
+    double p = d.second/P->M;
     if (p>1)
       p=1;
-    if ((double)rand()/RAND_MAX < p)
-      S.insert(&dp);
+    if ((double)rand()/RAND_MAX < p) {
+      S.insert(&(d.first));
+    }
   }
   return S;
 }
 
 solution sample_augment(instance* P) {
-  set<demand_pair*> S = random_sampling(P);
-  solution G(P->n);
+  sample S = random_sample(P);
+  solution F(P->n);
   //subproblem step
-  //steiner_forest(P, &S, &G);
+  //steiner_forest(&P->G, &S, &F);
   //augmentation step
-  //augmentation(P, &S, &G);
-  return G;
+  //augmentation(P, &S, &F);
+  return F;
 }
