@@ -17,7 +17,7 @@ struct instance {
   graph* G;
   double M;
   demands D;
-
+  map<int,int> associate;
 
 };
 
