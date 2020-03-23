@@ -40,3 +40,17 @@ void graph::print() {
 bool graph::is_edge(int u, int v) {
   return distance[u][v] != INT_MAX;
 }
+
+bool graph::connected(int u) {
+  return !neighbors[u].empty();
+}
+
+graph graph::copy() {
+  graph G(n);
+  for (int i=0; i<n; i++) {
+    G.neighbors[i] = neighbors[i];
+    for (int j=0; j<n; j++)
+      G.distance[i][j] = distance[i][j];
+  }
+  return G;
+}
