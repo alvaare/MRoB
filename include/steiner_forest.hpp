@@ -21,6 +21,6 @@ struct aux_node {
   bool operator<(const aux_node) const;
 };
 
-void steiner_forest(instance, sample*, solution);
+void steiner_forest(graph*, sample*, solution);
 
 #endif
