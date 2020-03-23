@@ -16,6 +16,8 @@ struct graph {
   void add_edge(int, int, double);
   void print();
   bool is_edge(int, int);
+  bool connected(int);
+  graph copy();
 };
 
 
